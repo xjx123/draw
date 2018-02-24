@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.dev.config.js",
+    "start": "webpack-dev-server --open --config webpack.dev.config.js",
+    "server": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
     "ts-loader": "^3.5.0",
     "tslint": "^5.9.1",
     "tslint-config-standard": "^7.0.0",
@@ -17,7 +20,8 @@
     "typescript": "^2.7.2",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^6.0.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "vue": "^2.5.13",
