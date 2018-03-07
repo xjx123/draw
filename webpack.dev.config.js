@@ -14,6 +14,14 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin()    // 热替换
     ],
+    module:{
+        loaders: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
+        ]
+    },
     // 解释在这 https://github.com/vuejs-templates/webpack/issues/215 
     resolve: {
         alias: {
