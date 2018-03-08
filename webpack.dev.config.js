@@ -15,10 +15,12 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()    // 热替换
     ],
     module:{
-        loaders: [
+        rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                use:[
+                    'vue-loader'
+                ]
             }
         ]
     },
