@@ -1,7 +1,7 @@
 <template>
-    <button @:click="draw">我来画</button>
-    <button @:click="guess">我来猜</button>
-    <button @:click="clear">重新开始</button>
+    <button v-if="this.status == 0"  @click="draw">我来画</button>
+    <button v-else-if="this.status == 0" @click="guess">我来猜</button>
+    <button v-else-if="this.status == 2" @click="clear">重新开始</button>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
         return {
             status: 0
         }
-    }，
+    },
     methods: {
         draw() {
             console.log("status: ", this.status);
