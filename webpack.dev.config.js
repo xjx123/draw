@@ -18,9 +18,19 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use:[
+                use: [
                     'vue-loader'
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',     // 将ES6语法编程成ES5语法
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+               }
             }
         ]
     },
