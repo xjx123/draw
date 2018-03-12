@@ -1,6 +1,8 @@
 <template>
-    <button v-if="this.status == 0"  @click="draw">我来画</button>
-    <button v-else-if="this.status == 0" @click="guess">我来猜</button>
+    <div v-if="this.status == 0">
+        <button @click="draw">我来画</button>
+        <button @click="guess">我来猜</button>
+    </div>
     <button v-else-if="this.status == 2" @click="clear">重新开始</button>
 </template>
 
