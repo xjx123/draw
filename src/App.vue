@@ -3,7 +3,7 @@
         <button @click="draw">我来画</button>
         <button @click="guess">我来猜</button>
     </div>
-    <button v-else-if="this.status == 2" @click="clear">重新开始</button>
+    <button v-else-if="this.status == 2" @click="replay">重新开始</button>
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
             console.log("status: ", this.status);
             this.status = 2;
         },
-        clear() {
+        replay() {
             this.status = 0;
             console.log("status: ", this.status);
             location.reload()
