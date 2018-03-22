@@ -28,6 +28,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',     // 将ES6语法编程成ES5语法
                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             }
         ]
     },
