@@ -1,12 +1,12 @@
 <template>
-    <canvas id="canvas" width="500" height="300" style="border: 1px solid #999;"></canvas>
+    <canvas id="canvas" width="500" height="300"></canvas>
 </template>
 
 <script>
 export default {
     mounted() {
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
+        var canvas = document.getElementById('canvas');  
+        var ctx = canvas.getContext('2d');  // 返回一个用于在画布上绘图的环境。
         ctx.fillStyle = '#999';
         ctx.strokeStyle = "#000";
         ctx.fillRect(0, 0, 500, 500);
@@ -16,8 +16,4 @@ export default {
 
 
 <style>
-    #canvas {
-        background: pink;
-        cursor: default;
-    }
 </style>

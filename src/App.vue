@@ -1,37 +1,56 @@
 <template>
-    <drawing-board v-if = "this.status == 1"></drawing-board>
-    <showing-board v-else-if = "this.status == 2"></showing-board>
-    <div v-else-if = "this.status == 0">
-        <button @click = "draw">我来画</button>
-        <button @click = "guess">我来猜</button>
+    <div>
+        <h1>Hello App!</h1>
+        <button @click="changedRule">changed rule</button>
+        <Login />
+        <p>rule: {{ rule && rule.toString() }}</p>
+        <ul>
+            <li v-if="rule.indexOf(1) > -1"> 
+                <router-link to='/home'>Go to Home</router-link>
+            </li>
+            <li v-if="rule.indexOf(2) > -1"> 
+                <router-link to='/home1'>Go to Home1</router-link>
+            </li>
+            <li v-if="rule.indexOf(3) > -1"> 
+                <router-link to='/home2'>Go to Home2</router-link>
+            </li>
+            <li v-if="rule.indexOf(4) > -1"> 
+                <router-link to='/home3'>Go to Home3</router-link>
+            </li>
+            <li v-if="rule.indexOf(5) > -1"> 
+                <router-link to='/home4'>Go to Home4</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
     </div>
-    <button v-else-if="this.status == 2" @click="replay">重新开始</button>
 </template>
 
 <script>
-import DrawingBoard from './components/drawing-board.vue';
-import ShowingBoard from './components/showing-board.vue';
+import { mapState } from 'vuex';
+import Login from './Login.vue';
+
 
 export default {
+    name: 'App',
     data() {
         return {
-            status: 0
+            test: 1
         }
     },
     components: {
-        DrawingBoard,
-        ShowingBoard
+        Login
+    },
+    mounted() {
+        console.log("mounted props: ", this.props)
+    },
+    computed: {
+        rule() {
+            return this.$store.state.rule
+        }
     },
     methods: {
-        draw() {
-            this.status = 1;
-        },
-        guess() {
-            this.status = 2;
-        },
-        replay() {
-            this.status = 0;
-            location.reload()
+        changedRule() {
+            this.$store.commit('updateRule', [1, 2, 3, 4])
         }
     }
 }
